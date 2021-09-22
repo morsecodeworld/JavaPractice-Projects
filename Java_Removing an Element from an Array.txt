@@ -1,0 +1,62 @@
+/**
+* Removing the name from roster
+*/
+import java.util.Scanner;
+
+public class ArrayAddDrop {
+    
+    public static void main(String[] args) {
+      
+        Scanner input = new Scanner(System.in);
+        int indexToDrop;
+        int numStudents = 5; //current number on roster
+        String roster[] = new String[10]; //guesstimate of length will need
+        
+        roster[0] = "Alice";
+        roster[1] = "Benson";
+        roster[2] = "Chris";
+        roster[3] = "Daniel";
+        roster[4] = "Eric";
+       
+        System.out.println("Current Roster:");
+        printArray(roster, numStudents);
+        System.out.print("\nEnter the number of the student to drop: ");
+        indexToDrop = input.nextInt();
+        remove(roster, numStudents, indexToDrop);
+        
+        //decrement numStudents variable
+        numStudents--;
+        
+        System.out.println("\nCurrent Roster:");
+        printArray(roster, numStudents);
+       
+        System.out.println("Total enrolled in the class: "
+            + numStudents + " students");
+       
+    }
+    
+    /**
+     * Removes an element from an array at a specified index
+     * @param array the list of String values
+     * @param numElements the current number of elements stored
+     * @param indexToRemove where in the array to remove the element
+     */
+    
+    public static void remove(String array[], int numElements, int indexToRemove) {
+        for (int i = indexToRemove; i < numElements - 1; i++) {
+            array[i] = array[i+1]; //you fill in here!
+        }
+        return;
+    }
+
+    /**
+     * Print an array of Strings to the console
+     * @param array the list of String values
+     * @param numElements the current number of elements stored
+     */
+    public static void printArray(String[] array, int numElements) {
+        for (int i = 0; i < numElements; i++) {
+            System.out.println(i + ". " + array[i]);
+        }
+    }
+}
